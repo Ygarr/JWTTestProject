@@ -9,9 +9,7 @@ psql -h localhost -U titan titandb
 
 
 curl -XPOST -v -H 'Content-Type: application/json' http://localhost:8080/api/public/auth -d '{"userName":"user1", "passWord":"123"}'
-
 curl -XGET -v -H 'Content-Type: application/json' http://localhost:8080/api/public/hello/customer
-
 curl -XGET -v -H 'Content-Type: application/json' http://localhost:8080/api/secure/hello/customer
 
 curl -POST -v -H 'Content-Type: application/json' http://localhost:8080/TestProject/auth -d '{"userName":"user1", "passWord":"123"}'
