@@ -2,13 +2,7 @@
 
 A simple JWT token based authentication using Spring Boot.
 
-Related blog article:
-http://andreinc.net/2016/09/10/simple-authentication-with-spring-boot-and-jwt-tokens/
-
-
 ./gradlew  build -x test && java -jar build/libs/simple-jwt-0.0.1-SNAPSHOT.jar
-
-
 
 psql -h localhost -U titan titandb
 
@@ -39,13 +33,13 @@ eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJhOWYwNzA3ZC1mOGUzLTRiZmItOWQ4Yy01OTdkZWQzMmFmN2U
 
 
 
-curl -XGET -v -H 'Content-Type: application/json' http://localhost:8080/api/public/hello/tvarina
+curl -XGET -v -H 'Content-Type: application/json' http://localhost:8080/api/public/hello/customer
 
 Note: Unnecessary use of -X or --request, GET is already inferred.
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 8080 (#0)
-> GET /api/public/hello/tvarina HTTP/1.1
+> GET /api/public/hello/customer HTTP/1.1
 > Host: localhost:8080
 > User-Agent: curl/7.52.1
 > Accept: */*
@@ -59,14 +53,14 @@ Note: Unnecessary use of -X or --request, GET is already inferred.
 < 
 * Curl_http_done: called premature == 0
 * Connection #0 to host localhost left intact
-Hello JWT, tvarina! (Public)
+Hello JWT, customer! (Public)
 
 
 
 
-curl -XGET -v -H 'Content-Type: application/json' http://localhost:8080/api/secure/hello/tvarina
+curl -XGET -v -H 'Content-Type: application/json' http://localhost:8080/api/secure/hello/customer
 
-curl -GET -v -H 'Content-Type: application/json' http://localhost:8080/api/public/hello/tvarina
+curl -GET -v -H 'Content-Type: application/json' http://localhost:8080/api/public/hello/customer
 
 
 
@@ -78,11 +72,11 @@ curl -POST -v -H 'Content-Type: application/json' http://localhost:8080/api/secu
 
 curl -GET -v -H "x-auth-token:eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5YTBiNjZiYi0zNWVlLTRiNDctYjI0My04YWVlMDJlZjQwMzgiLCJzdWIiOiJ1c2VyMSIsInJvbGUiOiIxMjMiLCJpYXQiOjE0ODgyNzg4MDUsImV4cCI6MTQ4ODM2NTIwNX0.2DNWvwGh5FnPdc-JZj79wPeJmzPZwuc0H4jDOQCIz4KdjQn4jH4WrOjUM3Sz3uP2ge6cK4jZmLQCLd-VJJBu-A" http://localhost:8080/api/secure/hello/anyuser
 
-→ curl -GET -i -H "x-auth-token:eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5YTBiNjZiYi0zNWVlLTRiNDctYjI0My04YWVlMDJlZjQwMzgiLCJzdWIiOiJ1c2VyMSIsInJvbGUiOiIxMjMiLCJpYXQiOjE0ODgyNzg4MDUsImV4cCI6MTQ4ODM2NTIwNX0.2DNWvwGh5FnPdc-JZj79wPeJmzPZwuc0H4jDOQCIz4KdjQn4jH4WrOjUM3Sz3uP2ge6cK4jZmLQCLd-VJJBu-A" http://localhost:8080/api/secure/hello/tvarina
+→ curl -GET -i -H "x-auth-token:eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5YTBiNjZiYi0zNWVlLTRiNDctYjI0My04YWVlMDJlZjQwMzgiLCJzdWIiOiJ1c2VyMSIsInJvbGUiOiIxMjMiLCJpYXQiOjE0ODgyNzg4MDUsImV4cCI6MTQ4ODM2NTIwNX0.2DNWvwGh5FnPdc-JZj79wPeJmzPZwuc0H4jDOQCIz4KdjQn4jH4WrOjUM3Sz3uP2ge6cK4jZmLQCLd-VJJBu-A" http://localhost:8080/api/secure/hello/customer
 HTTP/1.1 200 OK
 Date: Tue, 28 Feb 2017 10:54:30 GMT
 X-Application-Context: application
 Content-Type: text/plain;charset=utf-8
 Content-Length: 28
 
-Hello JWT, tvarina! (Secure)
+Hello JWT, customer! (Secure)
