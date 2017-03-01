@@ -1,0 +1,58 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'simple-jwt'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	// tag::jetty[]
+	compile("org.springframework.boot:spring-boot-starter-web") {
+		exclude module: "spring-boot-starter-tomcat"
+	}
+	compile("org.springframework.boot:spring-boot-starter-jetty")
+	// end::jetty[]
+
+	// tag::actuator[]
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	// end::actuator[]
+	compile("org.projectlombok:lombok:1.16.10")
+
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.7.0'
+
+
+	compile group: 'org.postgresql', name: 'postgresql', version:'9.3-1100-jdbc4'
+	compile group: 'com.zaxxer', name: 'HikariCP', version:'2.3.7'
+
+	compile(group: 'org.hibernate', name: 'hibernate-core', version:'4.3.8.Final') {
+		exclude(module: 'jboss-logging-annotations')
+		exclude(module: 'jandex')
+		exclude(module: 'antlr')
+		exclude(module: 'xml-apis')
+	}
+
+	compile(group: 'org.hibernate.common', name: 'hibernate-commons-annotations', version:'4.0.5.Final') {
+		exclude(module: 'jboss-logging-annotations')
+	}
+}
