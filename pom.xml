@@ -18,6 +18,8 @@
     <spring-framework.version>4.1.6.RELEASE</spring-framework.version>
     <jjwt.version>0.4</jjwt.version>
     <h2.version>1.4.188</h2.version>
+    <postgresql.version>9.4.1208.jre7</postgresql.version>
+    <hikaricp.version>2.4.3</hikaricp.version>
     <jackson.version>2.5.3</jackson.version>
     <apache-commons.version>3.0</apache-commons.version>
     <junit.version>4.12</junit.version>
@@ -70,11 +72,11 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>${h2.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.h2database</groupId>-->
+      <!--<artifactId>h2</artifactId>-->
+      <!--<version>${h2.version}</version>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
@@ -86,6 +88,49 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- Hibernate library -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>5.1.0.Final</version>
+    </dependency>
+
+    <!-- needed if you want to use new java.time API -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-java8</artifactId>
+      <version>5.1.0.Final</version>
+    </dependency>
+
+    <!-- needed if you want to use javax.validation -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>5.2.4.Final</version>
+    </dependency>
+
+    <!-- needed if you want to use javax.validation -->
+    <dependency>
+      <groupId>javax.el</groupId>
+      <artifactId>javax.el-api</artifactId>
+      <version>2.2.4</version>
+    </dependency>
+
+    <!-- PostgreSql driver, if you use another DB change
+             this dependency -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>${hikaricp.version}</version>
+    </dependency>
+
   </dependencies>
 
   <!-- Build information -->
