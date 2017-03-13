@@ -1,7 +1,7 @@
 package com.company.tehprojectum.security;
 
 /**
- * Rename themain to main to Run and generate
+ * By Default class unused. Rename themain to main to Run and generate
  *
  * Created by kdiv on 3/9/17.
  */

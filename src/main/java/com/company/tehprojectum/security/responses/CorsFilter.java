@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //Cross-origin resource sharing
-
 @Component
 public class CorsFilter implements Filter {
 

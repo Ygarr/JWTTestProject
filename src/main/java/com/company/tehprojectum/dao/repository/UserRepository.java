@@ -6,19 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * AKA UserDAO
+ * A.K.A. UserDAO
  *
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
   public User findByUsername( String username); //@Param("login")
 
-  //public User findById (Long id);
    User getOne(Long sid);//Integer
 
-//  User deleteUser(User user);
-//
-//  User save(User user);
-
-//  User updateByUpdater(Updater<User> updater);
 }

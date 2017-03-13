@@ -35,12 +35,6 @@ public class TokenUtils {
   @Value("${tehprojectum.token.expiration}")
   private Long expiration;
 
-//  @Value("${tehprojectum.username.header}")
-//  private String usernameHeader;
-//
-//  @Value("${tehprojectum.password.header}")
-//  private String passwordHeader;
-
   public String getUsernameFromToken(String token) {
     String username;
     try {

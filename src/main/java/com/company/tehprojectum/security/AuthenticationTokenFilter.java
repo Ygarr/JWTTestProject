@@ -21,12 +21,6 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
     @Value("${tehprojectum.token.header}")
     private String tokenHeader;
 
-//    @Value("${tehprojectum.username.header}")
-//    private String usernameHeader;
-//
-//    @Value("${tehprojectum.password.header}")
-//    private String passwordHeader;
-
   @Autowired
   private TokenUtils tokenUtils;
 
@@ -57,21 +51,6 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
 
     chain.doFilter(request, response);
   }
-
-
-//    private void checkLogin(HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws IOException {
-//        String authorization = httpRequest.getHeader("Authorization");
-//        String username = httpRequest.getHeader(usernameHeader);
-//        String password = httpRequest.getHeader(passwordHeader);
-//
-//        if (authorization != null) {
-//            checkBasicAuthorization(authorization, httpResponse);
-//            doNotContinueWithRequestProcessing(httpRequest);
-//        } else if (username != null && password != null) {
-//            checkUsernameAndPassword(username, password, httpResponse);
-//            doNotContinueWithRequestProcessing(httpRequest);
-//        }
-//    }
 
 
 }

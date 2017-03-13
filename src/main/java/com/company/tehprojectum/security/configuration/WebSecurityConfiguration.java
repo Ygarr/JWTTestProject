@@ -25,10 +25,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    /** http://stackoverflow.com/questions/41480102/how-spring-security-filter-chain-works **/
-    /** https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#form-login-filter **/
-        /**https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#jc-form**/
-
   @Autowired
   private EntryPointUnauthorizedHandler unauthorizedHandler;
 
@@ -60,40 +56,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public AuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
         AuthenticationTokenFilter authenticationTokenFilter = new AuthenticationTokenFilter();
         authenticationTokenFilter.setAuthenticationManager(authenticationManagerBean());
-        /****/
-        /****/
-//        authenticationTokenFilter.setUsernameParameter("login");
-//        authenticationTokenFilter.setPasswordParameter("pass");
-//        authenticationTokenFilter.afterPropertiesSet();
 
         return authenticationTokenFilter;
     }
 
-//    @Bean
-//    public AdditionalFilter additionalFilterBean() throws Exception {
-//        AdditionalFilter authenticationTokenFilter = new AdditionalFilter();
-//        authenticationTokenFilter.setAuthenticationManager(authenticationManagerBean());
-//        /****/
-//        /****/
-////        authenticationTokenFilter.setUsernameParameter("login");
-////        authenticationTokenFilter.setPasswordParameter("pass");
-////        authenticationTokenFilter.afterPropertiesSet();
-//
-//        return authenticationTokenFilter;
-//    }
-
-//    @Bean
-//    public UsernamePasswordAuthenticationFilter customUsernamePasswordAuthenticationFilter() throws Exception {
-//        UsernamePasswordAuthenticationFilter customUsernamePasswordAuthenticationFilter = new UsernamePasswordAuthenticationFilter();
-//        customUsernamePasswordAuthenticationFilter.setAuthenticationManager(authenticationManagerBean());
-////        customUsernamePasswordAuthenticationFilter
-////                .setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/login","POST"));
-////        customUsernamePasswordAuthenticationFilter.setUsernameParameter("login");
-////        customUsernamePasswordAuthenticationFilter.setUsernameParameter("pass");
-////        customUsernamePasswordAuthenticationFilter.afterPropertiesSet();
-//
-//        return customUsernamePasswordAuthenticationFilter;
-//    }
 
   @Bean
   public SecurityService securityService() {
@@ -101,16 +67,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
   }
 
 
-//    public AuthenticationTokenFilter authenticationTokenFilterBean2()
-//            throws Exception {
-//        AuthenticationTokenFilter customUsernamePasswordAuthenticationFilter = new AuthenticationTokenFilter();
-//        customUsernamePasswordAuthenticationFilter.setAuthenticationManager(authenticationManagerBean());
-//        //customUsernamePasswordAuthenticationFilter.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(loginUrl, "POST"));
-//        customUsernamePasswordAuthenticationFilter.setUsernameParameter("login");
-//        customUsernamePasswordAuthenticationFilter.setPasswordParameter("pass");
-//        customUsernamePasswordAuthenticationFilter.afterPropertiesSet();
-//        return customUsernamePasswordAuthenticationFilter;
-//    }
 
 
   @Override
@@ -127,37 +83,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
       .authorizeRequests()
         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
         .antMatchers("/auth/**").permitAll()
-//            .antMatchers("/auz/**").permitAll()
             .anyRequest().authenticated()
-
-
     ;
-
-
-//      httpSecurity.addFilterBefore(customUsernamePasswordAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-//              .formLogin().usernameParameter("login").passwordParameter("pass");
 
 
     // Custom JWT based authentication
     httpSecurity
       .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class)
-//            .formLogin()
-////            .formLogin()
-////            .loginPage("/TestProject/auth/**")
-//            .usernameParameter("login")
-//            .passwordParameter("pass")
-
-//            .usernameParameter("login")
-//            .passwordParameter("pass")
-
     ;
 
-//      httpSecurity
-//              .addFilterBefore(authenticationTokenFilterBean2(), UsernamePasswordAuthenticationFilter.class).formLogin()
-////            .formLogin()
-////            .loginPage("/TestProject/auth/**")
-//              .usernameParameter("login")
-//              .passwordParameter("pass");
 
   }
 

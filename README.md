@@ -1,6 +1,6 @@
 - Used many other jwt-spring projects including "Cerberus"
 
-- mvn spring-boot:run -Dmaven.test.skip=true
+- mvn spring-boot:run -Dmaven.test.skip=true 
 - curl -i -H "Content-Type: application/json" -X POST -d '{"username":"test","password":"wrong"}' http://localhost:8080/TestProject/auth
 - curl -i -H "Content-Type: application/json" -X POST -d '{"username":"test","password":"correct"}' http://localhost:8080/TestProject/auth
 #<!-- case: curl -i -X POST -d username=user -d password=userPass http://localhost:8080/TestProject/auth-->
