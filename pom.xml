@@ -19,7 +19,7 @@
     <jjwt.version>0.4</jjwt.version>
     <h2.version>1.4.188</h2.version>
     <postgresql.version>9.4.1208.jre7</postgresql.version>
-    <hikaricp.version>2.4.3</hikaricp.version>
+    <hikaricp.version>2.6.1</hikaricp.version>
     <jackson.version>2.5.3</jackson.version>
     <apache-commons.version>3.0</apache-commons.version>
     <junit.version>4.12</junit.version>

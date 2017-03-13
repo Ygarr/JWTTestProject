@@ -2,6 +2,7 @@
 /home/kdiv/tehprojectum/src/main/java/com/company/tehprojectum/controller/rest/SecuredController.java
 /home/kdiv/tehprojectum/src/main/java/com/company/tehprojectum/security/responses/CorsFilter.java
 /home/kdiv/tehprojectum/src/main/java/com/company/tehprojectum/model/json/AuthenticationResponse.java
+/home/kdiv/tehprojectum/src/main/java/com/company/tehprojectum/JPAConfig.java
 /home/kdiv/tehprojectum/src/main/java/com/company/tehprojectum/security/AuthenticationTokenFilter.java
 /home/kdiv/tehprojectum/src/main/java/com/company/tehprojectum/security/responses/EntryPointUnauthorizedHandler.java
 /home/kdiv/tehprojectum/src/main/java/com/company/tehprojectum/service/impl/SpringUserDetailsServiceImpl.java

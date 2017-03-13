@@ -8,6 +8,7 @@ com/company/tehprojectum/controller/rest/SecuredController.class
 com/company/tehprojectum/Application.class
 com/company/tehprojectum/security/PasswordEncoderGenerator.class
 com/company/tehprojectum/security/TokenUtils.class
+com/company/tehprojectum/JPAConfig.class
 com/company/tehprojectum/security/responses/CorsFilter.class
 com/company/tehprojectum/domain/entity/User.class
 com/company/tehprojectum/dao/repository/UserRepository.class

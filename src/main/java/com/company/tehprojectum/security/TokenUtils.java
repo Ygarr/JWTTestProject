@@ -1,19 +1,18 @@
 package com.company.tehprojectum.security;
 
 import com.company.tehprojectum.model.security.CustomUserDetails;
-
-import io.jsonwebtoken.*;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.log4j.Logger;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mobile.device.Device;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -36,11 +35,11 @@ public class TokenUtils {
   @Value("${tehprojectum.token.expiration}")
   private Long expiration;
 
-  @Value("${tehprojectum.username.header}")
-  private String usernameHeader;
-
-  @Value("${tehprojectum.password.header}")
-  private String passwordHeader;
+//  @Value("${tehprojectum.username.header}")
+//  private String usernameHeader;
+//
+//  @Value("${tehprojectum.password.header}")
+//  private String passwordHeader;
 
   public String getUsernameFromToken(String token) {
     String username;

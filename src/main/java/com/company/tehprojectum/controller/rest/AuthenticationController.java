@@ -29,11 +29,11 @@ public class AuthenticationController {
   @Value("${tehprojectum.token.header}")
   private String tokenHeader;
 
-    @Value("${tehprojectum.username.header}")
-    private String usernameHeader;
-
-    @Value("${tehprojectum.password.header}")
-    private String passwordHeader;
+//    @Value("${tehprojectum.username.header}")
+//    private String usernameHeader;
+//
+//    @Value("${tehprojectum.password.header}")
+//    private String passwordHeader;
 
   @Autowired
   private AuthenticationManager authenticationManager;
